@@ -1,34 +1,66 @@
-let email = document.getElementById("email");
-let password = document.getElementById("password");
-let loginError1 = document.getElementById("login-error1");
+document.addEventListener("DOMContentLoaded", function () {
+    let email = document.getElementById("email");
+    let password = document.getElementById("password");
+    let alertContainer = document.getElementById("alertContainer");
 
-let loginBtnEnviar = document.getElementById("login-btnEnviar");
+    let loginBtnEnviar = document.getElementById("login-btnEnviar");
 
-loginBtnEnviar.addEventListener("click", function(e){
-    e.preventDefault();
-    loginError1.innerHTML = "";
+    // Expresión regular para validar el formato de correo electrónico
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    let emailValue = email.value;
-    let passwordValue = password.value;
+    loginBtnEnviar.addEventListener("click", function(e) {
+        e.preventDefault();
+        alertContainer.innerHTML = "";
 
+        let emailValue = email.value;
+        let passwordValue = password.value;
 
-    if(emailValue === ""){
-        loginError1.innerHTML = "Debe ingresar el correo electrónico";
-        loginError1.style.color = "red";
-        return;
-    }
+        if (emailValue.trim() === "") {
+            alertContainer.innerHTML = `
+                <div class="alert alert-dismissible alert-danger">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <strong>Oh snap!</strong> Debe ingresar el correo electrónico.
+                </div>
+            `;
+            email.value = "";
+            password.value = "";
+            return;
+        }
 
+        if (!emailRegex.test(emailValue)) {
+            alertContainer.innerHTML = `
+                <div class="alert alert-dismissible alert-danger">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <strong>Oh snap!</strong> El correo electrónico ingresado no es válido.
+                </div>
+            `;
+            email.value = "";
+            password.value = "";
+            return;
+        }
 
-    if(passwordValue === ""){
-        loginError1.innerHTML = "Debe ingresar la contraseña";
-        loginError1.style.color = "red";
-        return;
-    }
+        if (passwordValue === "") {
+            alertContainer.innerHTML = `
+                <div class="alert alert-dismissible alert-danger">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <strong>Oh snap!</strong> Debe ingresar la contraseña.
+                </div>
+            `;
+            return;
+        }
 
-    console.log(`Email: ${emailValue}, Password: ${passwordValue}`);
+        console.log(`Email: ${emailValue}, Password: ${passwordValue}`);
 
+        email.value = "";
+        password.value = "";
 
-    email.value = "";
-    password.value = "";
-    console.log('Inicio de sesión exitoso');
+        alertContainer.innerHTML = `
+            <div class="alert alert-dismissible alert-success">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>Success!</strong> Inicio de sesión exitoso.
+            </div>
+        `;
+
+        console.log('Inicio de sesión exitoso');
+    });
 });

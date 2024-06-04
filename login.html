@@ -48,20 +48,14 @@
               <a class="dropdown-item" href="#">Deportiva</a>
             </div>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Niños</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Urbana</a>
-              <a class="dropdown-item" href="#">Formal</a>
-              <a class="dropdown-item" href="#">Deportiva</a>
-            </div>
-          </li>
+          
         </ul>
       </div>
     </div>
   </nav>
 
   <main class="container mt-4">
+    <div id="alertContainer"></div>
     <div class="row justify-content-center">
       <div class="col-md-6">
         <div class="card">
@@ -71,12 +65,11 @@
           <div class="card-body">
             <form id="login-form">
               <div class="form-group mb-3">
-                <label for="email" class="form-label">Correo Electrónico:&nbsp;</label>
-                <label id="login-error1" class="form-label"></label>
+                <label for="email" class="form-label">Correo Electrónico:</label>
                 <input type="email" class="form-control" id="email" placeholder="Correo Electrónico" required>
               </div>
               <div class="form-group mb-3">
-                <label for="password" class="form-label">Contraseña:&nbsp;</label>
+                <label for="password" class="form-label">Contraseña:</label>
                 <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
               </div>
               <button type="submit" class="btn btn-primary" id="login-btnEnviar">Iniciar sesión</button>
@@ -89,7 +82,18 @@
 
   <footer class="footer">
     <div class="container">
-      <span class="text-muted">Contacto: info@grupocero.com</span>
+        <div class="row">
+            <div class="col-md-6">
+                <span class="text-muted">Acerca de nosotros:</span>
+                <a href="/infozcZC.html" id="zapacityLink">ZapaCity</a> <!-- Enlace para ZapaCity -->
+            </div>
+            <div class="col-md-6">
+                <span class="text-muted">Redes sociales:</span>
+                <img src="./asset/img/facebook.png" alt="Facebook" class="social-icon">
+                <img src="./asset/img/instagram.png" alt="Instagram" class="social-icon">
+                <img src="./asset/img/whatsapp.png" alt="WhatsApp" class="social-icon">
+            </div>
+        </div>
     </div>
   </footer>
 
