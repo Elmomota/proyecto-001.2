@@ -21,6 +21,10 @@ const enviarDatos = ( nombre, descripcion, precio, foto, disponible) => {
             doc.getElementById("pricePage").textContent = `Precio: ${precio}`;
             doc.getElementById("availablePage").textContent = `Disponible: ${disponible}`;
 
+            const agregarCarritoBtn = doc.querySelector(".agregar-carrito");
+            agregarCarritoBtn.dataset.nombre = nombre;
+            agregarCarritoBtn.dataset.precio = precio;
+
             const nuevoHTML = new XMLSerializer().serializeToString(doc);
             document.body.innerHTML = nuevoHTML;
         })
